@@ -2,7 +2,7 @@ name: WISE_HOME
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
