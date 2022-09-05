@@ -16,8 +16,8 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
         body: Stack(
       children: [
-        Positioned(top: -160, left: -30, child: topWidget(screenSize.width)),
-        Positioned(top: -100, left: -40, child: bottomWidget(screenSize.width)),
+//        Positioned(top: -160, left: -30, child: topWidget(screenSize.width)),
+        //Positioned(top: -100, left: -40, child: bottomWidget(screenSize.width)),
         bottomWidget(screenSize.width)
       ],
     ));
