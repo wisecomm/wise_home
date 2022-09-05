@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'center_widget_clipper.dart';
-
 class CenterWidget extends StatelessWidget {
   final Size size;
 
