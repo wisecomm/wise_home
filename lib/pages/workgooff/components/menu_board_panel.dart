@@ -90,11 +90,12 @@ class MenuBoardPanel extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(image, fit: BoxFit.fitWidth),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Text(
               name,
-              style: TextStyle(fontSize: 18 /*fontWeight: FontWeight.bold*/
-                  ),
+              style:
+                  const TextStyle(fontSize: 18 /*fontWeight: FontWeight.bold*/
+                      ),
             ),
           ],
         ));
