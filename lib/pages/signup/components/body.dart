@@ -56,7 +56,7 @@ class Body extends StatelessWidget {
             OrDivider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 SocalIcon(
                   iconSrc: "assets/icons/facebook.svg",
                 ),
