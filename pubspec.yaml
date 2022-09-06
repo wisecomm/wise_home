@@ -85,8 +85,11 @@ flutter:
     - assets/images/
     - assets/images/work_in_50.png
     - assets/images/work_out_64.png
+    - assets/images/work_half_50.png
+    - assets/images/work_hol_50.png
     - assets/images/social/
     - assets/icons/
+    - assets/icons/login.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

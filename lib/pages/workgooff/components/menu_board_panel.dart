@@ -47,7 +47,7 @@ class MenuBoardPanel extends StatelessWidget {
                     height: itemSize,
                     width: itemSize,
                     child: GestureDetector(
-                      child: _menuItem("퇴 근", "images/work_out_64.png"),
+                      child: _menuItem("퇴 근", "assets/images/work_out_64.png"),
                       onTap: () {
                         onChanged(2);
                       },
@@ -61,7 +61,7 @@ class MenuBoardPanel extends StatelessWidget {
                     height: itemSize,
                     width: itemSize,
                     child: GestureDetector(
-                      child: _menuItem("반 차", "images/work_half_50.png"),
+                      child: _menuItem("반 차", "assets/images/work_half_50.png"),
                       onTap: () {
                         onChanged(3);
                       },
@@ -70,7 +70,7 @@ class MenuBoardPanel extends StatelessWidget {
                     height: itemSize,
                     width: itemSize,
                     child: GestureDetector(
-                      child: _menuItem("휴 가", "images/work_hol_50.png"),
+                      child: _menuItem("휴 가", "assets/images/work_hol_50.png"),
                       onTap: () {
                         onChanged(4);
                       },
