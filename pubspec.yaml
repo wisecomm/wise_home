@@ -87,6 +87,10 @@ flutter:
     - assets/images/work_out_64.png
     - assets/images/work_half_50.png
     - assets/images/work_hol_50.png
+    - assets/images/main_top.png
+    - assets/images/login_bottom.png
+    - assets/images/main_bottom.png
+    - assets/images/signup_top.png
     - assets/images/social/
     - assets/icons/
     - assets/icons/login.svg
