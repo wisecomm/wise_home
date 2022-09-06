@@ -38,7 +38,7 @@ class MenuBoardPanel extends StatelessWidget {
                     height: itemSize,
                     width: itemSize,
                     child: GestureDetector(
-                      child: _menuItem("출 근", "images/work_in_50.png"),
+                      child: _menuItem("출 근", "assets/images/work_in_50.png"),
                       onTap: () {
                         onChanged(1);
                       },
