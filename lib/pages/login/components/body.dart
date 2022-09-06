@@ -80,7 +80,7 @@ class _MyState extends State<Body> {
             ),
             SizedBox(height: size.height * 0.03),
             SvgPicture.asset(
-              'assets/icons/login.svg',
+              'icons/login.svg',
               height: size.height * 0.35,
             ),
             SizedBox(height: size.height * 0.03),
