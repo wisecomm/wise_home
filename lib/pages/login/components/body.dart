@@ -46,7 +46,7 @@ class _MyState extends State<Body> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance?.addPostFrameCallback((_) => _formInit(context));
+    WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
   }
 
   // 폼 초기화
