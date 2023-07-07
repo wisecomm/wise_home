@@ -94,7 +94,7 @@ class _MyState extends State<Body> {
               onChanged: (value) {},
             ),
             RoundedButton(
-              text: '로그인',
+              text: '로그인 버턴',
               onPressed: () {
                 _btnLogin(context);
               },
