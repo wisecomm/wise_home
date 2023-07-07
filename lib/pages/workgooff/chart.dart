@@ -27,13 +27,13 @@ class Chart extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: defaultPadding),
+                const SizedBox(height: defaultPadding),
                 Text(
                   DateFormat('yyyy년 MM월 dd일').format(DateTime.now()),
                 ),
                 Text(
                   DateFormat('a hh:mm').format(DateTime.now()),
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -58,13 +58,13 @@ List<PieChartSectionData> pieChartSectionDatas = [
     radius: 22,
   ),
   PieChartSectionData(
-    color: Color(0xFF26E5FF),
+    color: const Color(0xFF26E5FF),
     value: 10,
     showTitle: false,
     radius: 19,
   ),
   PieChartSectionData(
-    color: Color(0xFFEE2727),
+    color: const Color(0xFFEE2727),
     value: 15,
     showTitle: false,
     radius: 16,

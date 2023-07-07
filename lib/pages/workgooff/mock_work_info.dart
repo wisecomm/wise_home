@@ -42,7 +42,7 @@ class WorkInfo {
   String toString() => "$_worktype : $_worktime";
 
   set workcheck(String workcheck) {
-    this._workcheck = workcheck;
+    _workcheck = workcheck;
     if (_workcheck == "true") {
       _worktime = DateFormat('a hh:mm').format(DateTime.now());
     } else {
@@ -51,22 +51,25 @@ class WorkInfo {
   }
 
   get workcheckBool {
-    if (this._workcheck == "true")
+    if (_workcheck == "true") {
       return true;
-    else
+    } else {
       return false;
+    }
   }
 
   get worktime {
-    if (_worktime == "")
+    if (_worktime == "") {
       return "    --:--";
-    else
+    } else {
       return _worktime;
+    }
   }
 
   static WorkInfo getCheckList(List<WorkInfo> workInfo, int index) {
-    if (workInfo.length < (index + 1))
+    if (workInfo.length < (index + 1)) {
       return WorkInfo((index + 1).toString(), "false", "");
+    }
 
     return workInfo[index];
   }

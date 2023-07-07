@@ -21,23 +21,23 @@ class WorkTop extends StatelessWidget {
     var work4 = WorkInfo.getCheckList(workInfo, 3);
 
     return Container(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Chart(),
+            const Chart(),
             Container(
-              padding: EdgeInsets.fromLTRB(50, 2, 50, 2),
+              padding: const EdgeInsets.fromLTRB(50, 2, 50, 2),
               decoration: BoxDecoration(
                   color: Colors.red,
                   border: Border.all(
                     color: Colors.red,
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
+                  borderRadius: const BorderRadius.all(Radius.circular(10))),
               child: Text(
                 workLastText(work1, work2, work3, work4),
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.w500),
@@ -47,25 +47,25 @@ class WorkTop extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(right: 40),
+                  padding: const EdgeInsets.only(right: 40),
                   child: Column(
                     children: [
                       RoundCheckBox(
                         label: "출근",
                         value: work1.workcheckBool,
                         onChanged: (bool? newValue) {
-                          print("Clieck=" + newValue.toString());
+                          print("Clieck=$newValue");
                         },
                       ),
                       Text(
                         work1.worktime,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
                 ),
-                Container(
+                const SizedBox(
                   height: 20,
                   child: VerticalDivider(
                     color: Colors.black,
@@ -73,19 +73,19 @@ class WorkTop extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 40),
+                  padding: const EdgeInsets.only(left: 40),
                   child: Column(
                     children: [
                       RoundCheckBox(
                         label: "퇴근",
                         value: work2.workcheckBool,
                         onChanged: (bool? newValue) {
-                          print("Clieck=" + newValue.toString());
+                          print("Clieck=$newValue");
                         },
                       ),
                       Text(
                         work2.worktime,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w500),
                       ),
                     ],

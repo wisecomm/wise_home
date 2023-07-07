@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class WFHttpUtil {
-  static bool _bShowProgressDialog = true;
+  static const bool _bShowProgressDialog = true;
   static String _token = "";
   static void setToken(String strToken) {
     _token = strToken;
@@ -101,11 +101,11 @@ class WFHttpUtil {
 
   static showLoaderDialog(BuildContext context) {
     AlertDialog alert = AlertDialog(
-      content: new Row(
+      content: Row(
         children: [
-          CircularProgressIndicator(),
+          const CircularProgressIndicator(),
           Container(
-              margin: EdgeInsets.only(left: 7), child: Text("Loading...")),
+              margin: const EdgeInsets.only(left: 7), child: const Text("Loading...")),
         ],
       ),
     );

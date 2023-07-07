@@ -39,7 +39,7 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  bool _settingsLoaded = false;
+  final bool _settingsLoaded = false;
 
   @override
   void initState() {

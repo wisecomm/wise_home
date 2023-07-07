@@ -14,10 +14,10 @@ class MenuBoardPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      const int _menu_count_width = 2;
-      const int _menu_count_height = 2;
-      double itemHeight = constraints.maxHeight / _menu_count_height;
-      double itemWidth = constraints.maxWidth / _menu_count_width;
+      const int menu_count_width = 2;
+      const int menu_count_height = 2;
+      double itemHeight = constraints.maxHeight / menu_count_height;
+      double itemWidth = constraints.maxWidth / menu_count_width;
 
       double itemSize;
       if (itemHeight > itemWidth) {

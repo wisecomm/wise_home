@@ -7,7 +7,7 @@ class WFSharedPrefJson {
       final prefs = await SharedPreferences.getInstance();
       return json.decode(prefs.getString(key) ?? '{}');
     } on Exception catch (e) {
-      print("read catch=" + e.toString());
+      print("read catch=$e");
       return json.decode('{}');
     }
   }
@@ -18,7 +18,7 @@ class WFSharedPrefJson {
       final prefs = await SharedPreferences.getInstance();
       return await prefs.setString(key, json.encode(value));
     } on Exception catch (e) {
-      print("save catch=" + e.toString());
+      print("save catch=$e");
       return false;
     }
   }
@@ -28,7 +28,7 @@ class WFSharedPrefJson {
       final prefs = await SharedPreferences.getInstance();
       return prefs.remove(key);
     } on Exception catch (e) {
-      print("remove catch=" + e.toString());
+      print("remove catch=$e");
       return false;
     }
   }

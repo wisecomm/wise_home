@@ -94,7 +94,7 @@ class _MyState extends State<Body> {
               onChanged: (value) {},
             ),
             RoundedButton(
-              text: '로그인 버턴',
+              text: '로그인',
               onPressed: () {
                 _btnLogin(context);
               },
@@ -119,7 +119,7 @@ class _MyState extends State<Body> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return SignUpPage();
+                    return const SignUpPage();
                   }),
                 );
               },

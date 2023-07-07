@@ -51,7 +51,7 @@ class RoundCheckBox extends StatelessWidget {
             padding: padding ?? const EdgeInsets.symmetric(horizontal: 0.0),
             child: Text(
               label,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
           ),
         ],

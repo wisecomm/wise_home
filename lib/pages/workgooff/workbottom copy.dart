@@ -17,18 +17,18 @@ class WorkBottom extends StatelessWidget {
   LayoutBuilder menuGridView() {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        const int _menu_count_width = 2;
-        const int _menu_count_height = 2;
+        const int menu_count_width = 2;
+        const int menu_count_height = 2;
 /*        
         final double itemHeight =
             (constraints.maxHeight - 140) / _menu_count_height;
         final double itemWidth = constraints.maxHeight / _menu_count_width;
 */
-        final double itemHeight = constraints.maxHeight / _menu_count_height;
-        final double itemWidth = constraints.maxWidth / _menu_count_width;
+        final double itemHeight = constraints.maxHeight / menu_count_height;
+        final double itemWidth = constraints.maxWidth / menu_count_width;
 
         return GridView.count(
-          crossAxisCount: _menu_count_width,
+          crossAxisCount: menu_count_width,
           childAspectRatio: (itemWidth / itemHeight),
           controller: ScrollController(keepScrollOffset: false),
           shrinkWrap: true,
@@ -45,7 +45,7 @@ class WorkBottom extends StatelessWidget {
                 width: 120,
                 height: 30,
                 child: Container(
-                    width: 50, color: Colors.red, child: Text("test")),
+                    width: 50, color: Colors.red, child: const Text("test")),
               ),
             ),
             /*
@@ -87,11 +87,11 @@ class WorkBottom extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(image),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Center(
               child: Text(
                 name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18, /*fontWeight: FontWeight.bold*/
                 ),
               ),

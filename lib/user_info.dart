@@ -14,11 +14,11 @@ class UserInfo {
         autoLoginCheck = json['autologincheck'] ?? false;
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['userid'] = this.userid;
-    data['passwd'] = this.passwd;
-    data['useridsavecheck'] = this.useridSaveCheck;
-    data['autologincheck'] = this.autoLoginCheck;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['userid'] = userid;
+    data['passwd'] = passwd;
+    data['useridsavecheck'] = useridSaveCheck;
+    data['autologincheck'] = autoLoginCheck;
     return data;
   }
 }

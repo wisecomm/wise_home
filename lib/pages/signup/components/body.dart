@@ -11,6 +11,8 @@ import '../../signup/components/social_icon.dart';
 import 'back_ground.dart';
 
 class Body extends StatelessWidget {
+  const Body({super.key});
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -19,7 +21,7 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               "SIGNUP",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
@@ -48,15 +50,15 @@ class Body extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return LoginPage();
+                    return const LoginPage();
                   }),
                 );
               },
             ),
-            OrDivider(),
-            Row(
+            const OrDivider(),
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 SocalIcon(
                   iconSrc: "assets/icons/facebook.svg",
                 ),

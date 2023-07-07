@@ -5,20 +5,20 @@ class WorkListDetail extends StatelessWidget {
   final String description;
 
   // In the constructor, require a Todo
-  WorkListDetail({Key? key, required this.description}) : super(key: key);
+  const WorkListDetail({Key? key, required this.description}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final title = '리스트 Detail';
+    const title = '리스트 Detail';
 
     // Use the Todo to create our UI
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: const Text(title),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Text(this.description),
+        padding: const EdgeInsets.all(16.0),
+        child: Text(description),
       ),
     );
   }

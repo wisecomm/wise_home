@@ -20,9 +20,9 @@ class _MyState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
 //        title: Text('Work 관리'),
-        title: const Text('Work ggg'),
+        title: const Text('소프트원 Work 관리'),
       ),
-      body: Body(),
+      body: const Body(),
     );
   }
 }

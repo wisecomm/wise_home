@@ -20,16 +20,15 @@ class RoundedButton extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     final ButtonStyle flatButtonStyle = TextButton.styleFrom(
-      primary: textColor,
-      backgroundColor: backgroundColor,
-      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      foregroundColor: textColor, backgroundColor: backgroundColor,
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(29)),
       ),
     );
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       width: size.width * 0.8,
       child: TextButton(
         style: flatButtonStyle,

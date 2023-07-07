@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ShardTest extends StatefulWidget {
+  const ShardTest({super.key});
+
   @override
   _MyHomePage createState() => _MyHomePage();
 }
@@ -18,7 +20,7 @@ class _MyHomePage extends State<ShardTest> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Saving data'),
+        title: const Text('Saving data'),
       ),
       body: Row(
         //mainAxisAlignment: MainAxisAlignment.center,
@@ -26,7 +28,7 @@ class _MyHomePage extends State<ShardTest> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
-              child: Text('Read'),
+              child: const Text('Read'),
               onPressed: () {
                 setState(() {
                   _read();
@@ -37,7 +39,7 @@ class _MyHomePage extends State<ShardTest> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
-              child: Text('Save'),
+              child: const Text('Save'),
               onPressed: () {
                 _save();
               },
@@ -56,7 +58,7 @@ class _MyHomePage extends State<ShardTest> {
 
   _read() async {
     final prefs = await SharedPreferences.getInstance();
-    final key = 'my_int_key';
+    const key = 'my_int_key';
     final value = prefs.getInt(key) ?? 0;
     readValue = value;
     print('read: $value');
@@ -64,8 +66,8 @@ class _MyHomePage extends State<ShardTest> {
 
   _save() async {
     final prefs = await SharedPreferences.getInstance();
-    final key = 'my_int_key';
-    final value = 42;
+    const key = 'my_int_key';
+    const value = 42;
     prefs.setInt(key, value);
     print('saved $value');
   }

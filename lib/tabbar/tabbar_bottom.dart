@@ -5,13 +5,13 @@ import '../../pages/worklist/work_list.dart';
 
 // 참조 : https://blog.logrocket.com/how-to-build-a-bottom-navigation-bar-in-flutter/
 class TabbarBottom extends StatefulWidget {
-  TabbarBottom({Key? key}) : super(key: key);
+  const TabbarBottom({Key? key}) : super(key: key);
 
   @override
   _MyPageState createState() => _MyPageState();
 }
 
-final keyWorkListState = new GlobalKey<WorkListState>();
+final keyWorkListState = GlobalKey<WorkListState>();
 
 class _MyPageState extends State<TabbarBottom> {
   int _selectedIndex = 0;
@@ -26,19 +26,19 @@ class _MyPageState extends State<TabbarBottom> {
     });
   }
 
-  static List<Widget> _pages = <Widget>[
-    WorkGooff(),
+  static final List<Widget> _pages = <Widget>[
+    const WorkGooff(),
     WorkList(
       key: keyWorkListState,
     ),
-    InputForm01(),
+    const InputForm01(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Work 관리'),
+        title: const Text('Work 관리'),
       ),
       body: SafeArea(
         child: IndexedStack(

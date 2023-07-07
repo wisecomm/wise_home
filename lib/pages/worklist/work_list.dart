@@ -14,7 +14,7 @@ class WorkListState extends State<WorkList> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_) => _formInit(context));
+    WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
   }
 
   // 폼 초기화
@@ -54,7 +54,7 @@ class WorkListState extends State<WorkList> {
     if (data.isEmpty) {
       return ListView(
         shrinkWrap: true,
-        children: [],
+        children: const [],
       );
     }
 
@@ -74,11 +74,11 @@ class WorkListState extends State<WorkList> {
     return Card(
       margin: const EdgeInsets.all(5),
       child: ListTile(
-        title: Row(
+        title: const Row(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Text("01",
                     style:
                         TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
@@ -89,7 +89,7 @@ class WorkListState extends State<WorkList> {
               ],
             ),
             // todo: 높이 자동 계산 수정 필요
-            const SizedBox(
+            SizedBox(
               height: 50,
               child: VerticalDivider(
                 width: 30,
@@ -98,14 +98,14 @@ class WorkListState extends State<WorkList> {
               ),
             ),
             Column(
-              children: const [
+              children: [
                 Text("출근 09:00 오전", style: TextStyle(fontSize: 16)),
                 Text("퇴근 07:00 오후", style: TextStyle(fontSize: 16)),
               ],
             ),
           ],
         ),
-        trailing: Column(children: const <Widget>[
+        trailing: const Column(children: <Widget>[
           Text("29분", style: TextStyle(color: Colors.pink, fontSize: 16)),
           Text("출근", style: TextStyle(color: Colors.green, fontSize: 16)),
         ]),
@@ -126,12 +126,12 @@ class WorkListState extends State<WorkList> {
   Widget _wCicleIconDataButton(IconData icon) {
     return RawMaterialButton(
       onPressed: () {},
+      shape: const CircleBorder(side: BorderSide(width: 2, color: Colors.blue)),
+      fillColor: Colors.white,
       child: Icon(
         icon,
         color: Colors.blue,
       ),
-      shape: const CircleBorder(side: BorderSide(width: 2, color: Colors.blue)),
-      fillColor: Colors.white,
       //padding: const EdgeInsets.all(15.0),
     );
   }
