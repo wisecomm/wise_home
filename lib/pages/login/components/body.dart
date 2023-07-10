@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import '../../../wflib/WebAppInterface.dart';
 import '../../components/already_have_an_acount_check.dart';
 import '../..//components/rounded_button.dart';
 import '../..//components/rounded_input_field.dart';
@@ -156,7 +159,25 @@ class _MyState extends State<Body> {
       userInfo.useridSaveCheck = _useridSaveCheck;
       oWFAppState.save();
 
-      callJsSaveUrl(userInfo.userid);
+      //getGalleryPhotoCall();
+      String strReturn = checkJiMunCall();
+      AlertDialog(
+        title: const Text("지문인증 결과"),
+        content: Text(strReturn),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context, 'OK'),
+            child: const Text('OK'),
+          ),
+        ],
+      );
+
+      Map<String, dynamic> jsonData = jsonDecode(strReturn);
+      if ("0" == jsonData['returnCode']) {
+        // 초기 화면 이동 (모든 이전 화면 제거)
+        Navigator.of(context).pushNamedAndRemoveUntil(
+            '/tabbar', (Route<dynamic> route) => false);
+      }
 
 /*
       if ((userInfo.userid.length > 5) &&
