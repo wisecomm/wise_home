@@ -25,10 +25,11 @@ void callJsFunction() {
 */
 
 // ignore: missing_js_lib_annotation
-@JS('WiseComInt.saveUrl')
-external void saveUrl(String text);
+//@JS('WiseComInt.saveUrl')
+@JS('WebAppInterface.getGalleryPhoto')
+external void getGalleryPhoto();
 void callJsSaveUrl(String strUrl) {
-  saveUrl(strUrl);
+  getGalleryPhoto();
 }
 
 class Body extends StatefulWidget {
@@ -155,6 +156,9 @@ class _MyState extends State<Body> {
       userInfo.useridSaveCheck = _useridSaveCheck;
       oWFAppState.save();
 
+      callJsSaveUrl(userInfo.userid);
+
+/*
       if ((userInfo.userid.length > 5) &&
           ("http".compareTo(userInfo.userid.substring(0, 4)) == 0)) {
         callJsSaveUrl(userInfo.userid);
@@ -163,6 +167,7 @@ class _MyState extends State<Body> {
       // 초기 화면 이동 (모든 이전 화면 제거)
       Navigator.of(context)
           .pushNamedAndRemoveUntil('/tabbar', (Route<dynamic> route) => false);
+*/
     });
   }
 }
