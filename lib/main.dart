@@ -60,6 +60,7 @@ class _MainAppState extends State<MainApp> {
       title: 'Flutter Demo',
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: const [Locale('en', ''), Locale('ko', '')],

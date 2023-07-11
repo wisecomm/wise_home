@@ -159,36 +159,33 @@ class _MyState extends State<Body> {
       userInfo.useridSaveCheck = _useridSaveCheck;
       oWFAppState.save();
 
-      //getGalleryPhotoCall();
       String strReturn = checkJiMunCall();
-      AlertDialog(
-        title: const Text("지문인증 결과"),
-        content: Text(strReturn),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.pop(context, 'OK'),
-            child: const Text('OK'),
-          ),
-        ],
-      );
-
       Map<String, dynamic> jsonData = jsonDecode(strReturn);
+
+      flutterShowDialog(jsonData['returnMsg']);
+
       if ("0" == jsonData['returnCode']) {
         // 초기 화면 이동 (모든 이전 화면 제거)
         Navigator.of(context).pushNamedAndRemoveUntil(
             '/tabbar', (Route<dynamic> route) => false);
       }
-
-/*
-      if ((userInfo.userid.length > 5) &&
-          ("http".compareTo(userInfo.userid.substring(0, 4)) == 0)) {
-        callJsSaveUrl(userInfo.userid);
-      }
-
-      // 초기 화면 이동 (모든 이전 화면 제거)
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil('/tabbar', (Route<dynamic> route) => false);
-*/
     });
+  }
+
+  void flutterShowDialog(String strContent) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("지문인증 결과"),
+            content: Text(strContent),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.pop(context, 'OK'),
+                child: const Text('OK'),
+              ),
+            ],
+          );
+        });
   }
 }
