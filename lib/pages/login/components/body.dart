@@ -62,6 +62,11 @@ class _MyState extends State<Body> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
+
+    _onBootpayDone = allowInterop((data) {
+      debugPrint("build start");
+      flutterShowDialog("결제 완료 ddd");
+    });
   }
 
   // 폼 초기화
@@ -82,10 +87,6 @@ class _MyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    _onBootpayDone = allowInterop((data) {
-      debugPrint("build start");
-    });
-
     debugPrint("build start");
     Size size = MediaQuery.of(context).size;
     return Background(
