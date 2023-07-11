@@ -18,6 +18,17 @@ import '../mock_login.dart';
 
 import 'package:js/js.dart';
 
+export './js_stub.dart' if (dart.library.html) 'package:js/js.dart';
+
+@JS('jsBootpay')
+external dynamic requestBootpayWeb(String payload);
+
+@JS('onBootpayDone')
+external set _onBootpayDone(Function(dynamic payload) f);
+
+@JS()
+external dynamic onBootpayDone();
+
 /*
 // ignore: missing_js_lib_annotation
 @JS('confirm')
@@ -71,6 +82,10 @@ class _MyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    _onBootpayDone = allowInterop((data) {
+      debugPrint("build start");
+    });
+
     debugPrint("build start");
     Size size = MediaQuery.of(context).size;
     return Background(
@@ -160,14 +175,15 @@ class _MyState extends State<Body> {
       oWFAppState.save();
 
       String strReturn = checkJiMunCall();
-      Map<String, dynamic> jsonData = jsonDecode(strReturn);
 
-      flutterShowDialog(jsonData['returnMsg']);
+      Map<String, dynamic> jsonData = jsonDecode(strReturn);
 
       if ("0" == jsonData['returnCode']) {
         // 초기 화면 이동 (모든 이전 화면 제거)
         Navigator.of(context).pushNamedAndRemoveUntil(
             '/tabbar', (Route<dynamic> route) => false);
+      } else {
+        flutterShowDialog(jsonData['returnMsg']);
       }
     });
   }
