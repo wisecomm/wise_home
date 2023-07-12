@@ -134,7 +134,7 @@ class _MyState extends State<Body> {
       // final map = jsonDecode(rawJson) as Map<String, dynamic>;
       // debugPrint("_wPluginCallback data2222 nmae=" + map['name']);
 
-      debugPrint("_wPluginCallback 111133");
+      debugPrint("_wPluginCallback 111144");
 
       try {
         var jsonData = jsonDecode(data)['weather'][0]['description'];
