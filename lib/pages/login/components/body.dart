@@ -18,8 +18,6 @@ import '../mock_login.dart';
 
 import 'package:js/js.dart';
 
-export './js_stub.dart' if (dart.library.html) 'package:js/js.dart';
-
 @JS('jsBootpay')
 external dynamic requestBootpayWeb(String payload);
 
@@ -63,10 +61,11 @@ class _MyState extends State<Body> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
 
+    debugPrint("_onBootpayDone start");
     _onBootpayDone = allowInterop((data) {
-      debugPrint("build start");
-      flutterShowDialog("결제 완료 ddd");
+      debugPrint("ggg");
     });
+    debugPrint("_onBootpayDone end");
   }
 
   // 폼 초기화
@@ -178,7 +177,8 @@ class _MyState extends State<Body> {
       String strReturn = checkJiMunCall();
 
       Map<String, dynamic> jsonData = jsonDecode(strReturn);
-
+      flutterShowDialog("jsonData=");
+/*
       if ("0" == jsonData['returnCode']) {
         // 초기 화면 이동 (모든 이전 화면 제거)
         Navigator.of(context).pushNamedAndRemoveUntil(
@@ -186,6 +186,7 @@ class _MyState extends State<Body> {
       } else {
         flutterShowDialog(jsonData['returnMsg']);
       }
+*/
     });
   }
 
