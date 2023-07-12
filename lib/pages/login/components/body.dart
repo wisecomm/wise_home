@@ -13,11 +13,13 @@ import '../../../wflib/wfutils/wfhttp_util.dart';
 import '../../../user_info.dart';
 import '../mock_login.dart';
 
-import './js_stub.dart';
+import 'package:js/js.dart';
 import './web_script_int.dart';
 
 @JS('onBootpayDone')
 external set _onBootpayDone(Function(dynamic payload) f);
+@JS()
+external dynamic onBootpayDone();
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -38,8 +40,13 @@ class _MyState extends State<Body> {
 
     debugPrint("_onBootpayDone start");
     _onBootpayDone = allowInterop((data) {
-      debugPrint("ggg");
+      debugPrint("initState");
+/*      
       flutterShowDialog("jsonData=initState");
+      // 초기 화면 이동 (모든 이전 화면 제거)
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil('/tabbar', (Route<dynamic> route) => false);
+*/
     });
     debugPrint("_onBootpayDone end");
   }
@@ -64,8 +71,11 @@ class _MyState extends State<Body> {
   Widget build(BuildContext context) {
 /*    
     _onBootpayDone = allowInterop((data) {
-      flutterShowDialog("jsonData=build");
+      flutterShowDialog("jsonData=111");
       debugPrint("ggg111");
+      // 초기 화면 이동 (모든 이전 화면 제거)
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil('/tabbar', (Route<dynamic> route) => false);
     });
 */
     debugPrint("build start");
