@@ -134,9 +134,11 @@ class _MyState extends State<Body> {
       final map = jsonDecode(rawJson) as Map<String, dynamic>;
       debugPrint("_wPluginCallback data2222 nmae=" + map['name']);
 
-      debugPrint("_wPluginCallback 1111");
+      debugPrint("_wPluginCallback 1111kk");
+      debugPrint("_wPluginCallback 111122===11" + data.runtimeType.toString());
+      debugPrint("_wPluginCallback 2222");
       List<Object> lists = data;
-      debugPrint("_wPluginCallback 111122===");
+      debugPrint("_wPluginCallback 111122===11");
       debugPrint("_wPluginCallback 1111221===" + lists.length.toString());
       debugPrint("_wPluginCallback 1111221===" + lists[0].toString());
       debugPrint(
