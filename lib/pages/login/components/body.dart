@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -40,34 +39,6 @@ class _MyState extends State<Body> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
 
-    _wPluginCallback = allowInterop((data) {
-      debugPrint("_wPluginCallback data22kk1=" + data.toString());
-/*      
-      debugPrint("_wPluginCallback data222=" + data['callback_id'].toString());
-      debugPrint("_wPluginCallback data223=" + data[1].toString());
-
-      try {
-        Map<String, dynamic> jsonData = jsonDecode(data[0]);
-      } catch (e) {
-        print("ERROR1====");
-        var message = e.toString();
-        print("ERROR2=" + message);
-      }
-*/
-/*
-      var params = jsonData['result'];
-      var returnCode = params.get('returnCode');
-
-      if ("0" == returnCode.toString()) {
-        // 초기 화면 이동 (모든 이전 화면 제거)
-        Navigator.of(context).pushNamedAndRemoveUntil(
-            '/tabbar', (Route<dynamic> route) => false);
-      } else {
-        var returnMsg = params.get('returnMsg');
-        flutterShowDialog('returnCode=$returnCode returnMsg=$returnMsg');
-      }
-*/
-    });
     debugPrint("_onBootpayDone end");
   }
 
@@ -155,6 +126,35 @@ class _MyState extends State<Body> {
   Future<void> _btnLogin(BuildContext context) async {
     // 요청 데이터 샛팅
     final loginInput = LoginInput("eve.holt@reqres.in", "cityslicka");
+
+    _wPluginCallback = allowInterop((data) {
+      debugPrint("_wPluginCallback data22kk2=$data");
+      debugPrint("_wPluginCallback data22kk3=" + data['callback_id']);
+/*      
+      debugPrint("_wPluginCallback data223=" + data[1].toString());
+
+      try {
+        Map<String, dynamic> jsonData = jsonDecode(data[0]);
+      } catch (e) {
+        print("ERROR1====");
+        var message = e.toString();
+        print("ERROR2=" + message);
+      }
+*/
+/*
+      var params = jsonData['result'];
+      var returnCode = params.get('returnCode');
+
+      if ("0" == returnCode.toString()) {
+        // 초기 화면 이동 (모든 이전 화면 제거)
+        Navigator.of(context).pushNamedAndRemoveUntil(
+            '/tabbar', (Route<dynamic> route) => false);
+      } else {
+        var returnMsg = params.get('returnMsg');
+        flutterShowDialog('returnCode=$returnCode returnMsg=$returnMsg');
+      }
+*/
+    });
 
     await WFHttpUtil.post(LoginInput.URL,
             body: loginInput.toJson(), context: context)
