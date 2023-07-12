@@ -41,10 +41,12 @@ class _MyState extends State<Body> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
 
     _wPluginCallback = allowInterop((data) {
-      debugPrint("_wPluginCallback data22=" + data.toString());
+      debugPrint("_wPluginCallback data221=" + data.toString());
+      debugPrint("_wPluginCallback data222=" + data[0].toString());
+      debugPrint("_wPluginCallback data223=" + data[1].toString());
 
       try {
-        Map<String, dynamic> jsonData = jsonDecode(data);
+        Map<String, dynamic> jsonData = jsonDecode(data[0]);
       } catch (e) {
         print("ERROR1====");
         var message = e.toString();
@@ -172,16 +174,6 @@ class _MyState extends State<Body> {
       userInfo.passwd = "패스워드";
       userInfo.useridSaveCheck = _useridSaveCheck;
       oWFAppState.save();
-
-      var data = '{"callback_id":"test callbackId"}';
-      Map<String, dynamic> jsonData = jsonDecode(data);
-
-      var aa = jsonData[0].toString();
-      debugPrint("_wPluginCallback data22=" + aa);
-      var bb = data[1].toString();
-      debugPrint("_wPluginCallback data22=" + bb);
-      var cc = bb[0].toString();
-      debugPrint("_wPluginCallback data22=" + cc);
 
       final isWebMobile = kIsWeb &&
           (defaultTargetPlatform == TargetPlatform.iOS ||
