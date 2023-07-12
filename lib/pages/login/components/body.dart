@@ -135,14 +135,14 @@ class _MyState extends State<Body> {
       debugPrint("_wPluginCallback data2222 nmae=" + map['name']);
 
       debugPrint("_wPluginCallback 111133");
-      final map3 = jsonDecode(data) as Map<Object, Object>;
+      final map3 = data as Map<Object, Object>;
       debugPrint("_wPluginCallback data22kk2=$data");
       debugPrint("_wPluginCallback data22kk3=" + map3.toString());
 
       debugPrint("_wPluginCallback 1111kk");
       debugPrint("_wPluginCallback 111122===11" + data.runtimeType.toString());
       debugPrint("_wPluginCallback 2222");
-      List<Object> lists = data;
+      final lists = data as List<Object>;
       debugPrint("_wPluginCallback 111122===11");
       debugPrint("_wPluginCallback 1111221===" + lists.length.toString());
       debugPrint("_wPluginCallback 1111221===" + lists[0].toString());
