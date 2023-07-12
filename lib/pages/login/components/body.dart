@@ -42,6 +42,7 @@ class _MyState extends State<Body> {
 
     _wPluginCallback = allowInterop((data) {
       debugPrint("_wPluginCallback data22kk1=" + data.toString());
+/*      
       debugPrint("_wPluginCallback data222=" + data['callback_id'].toString());
       debugPrint("_wPluginCallback data223=" + data[1].toString());
 
@@ -52,6 +53,7 @@ class _MyState extends State<Body> {
         var message = e.toString();
         print("ERROR2=" + message);
       }
+*/
 /*
       var params = jsonData['result'];
       var returnCode = params.get('returnCode');
