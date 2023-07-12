@@ -129,23 +129,22 @@ class _MyState extends State<Body> {
     final loginInput = LoginInput("eve.holt@reqres.in", "cityslicka");
 
     _wPluginCallback = allowInterop((data) {
-      debugPrint("_wPluginCallback data1111");
-      final rawJson = '{"name":"Mary","age":30}';
-      final map = jsonDecode(rawJson) as Map<String, dynamic>;
-      debugPrint("_wPluginCallback data2222 nmae=" + map['name']);
-
+      // debugPrint("_wPluginCallback data1111");
+      // final rawJson = '{"name":"Mary","age":30}';
+      // final map = jsonDecode(rawJson) as Map<String, dynamic>;
+      // debugPrint("_wPluginCallback data2222 nmae=" + map['name']);
+/*
       debugPrint("_wPluginCallback 111133");
       final map3 = data as Map<Object, Object>;
       debugPrint("_wPluginCallback data22kk2=$data");
       debugPrint("_wPluginCallback data22kk3=" + map3.toString());
-
+*/
       debugPrint("_wPluginCallback 1111kk");
-      debugPrint("_wPluginCallback 111122===11" + data.runtimeType.toString());
-      debugPrint("_wPluginCallback 2222");
-      final lists = data as List<Object>;
-      debugPrint("_wPluginCallback 111122===11");
-      debugPrint("_wPluginCallback 1111221===" + lists.length.toString());
-      debugPrint("_wPluginCallback 1111221===" + lists[0].toString());
+      debugPrint("_wPluginCallback 2222pp");
+      List<dynamic> list = data as List<dynamic>;
+      debugPrint("_wPluginCallback 111122pp===11");
+      debugPrint("_wPluginCallback 1111221===" + lists.toString());
+      /*
       debugPrint(
           "_wPluginCallback 1111221===" + lists[0].runtimeType.toString());
 
@@ -153,7 +152,7 @@ class _MyState extends State<Body> {
       //         "_wPluginCallback 111122 runtype=" + data.runtimeType.toString());
 
       debugPrint("_wPluginCallback 111122" + lists.first.toString());
-
+*/
 /*      
       debugPrint("_wPluginCallback data223=" + data[1].toString());
 
