@@ -41,8 +41,8 @@ class _MyState extends State<Body> {
     debugPrint("_onBootpayDone start");
     _onBootpayDone = allowInterop((data) {
       debugPrint("initState");
-/*      
       flutterShowDialog("jsonData=initState");
+/*      
       // 초기 화면 이동 (모든 이전 화면 제거)
       Navigator.of(context)
           .pushNamedAndRemoveUntil('/tabbar', (Route<dynamic> route) => false);
@@ -71,8 +71,8 @@ class _MyState extends State<Body> {
   Widget build(BuildContext context) {
 /*    
     _onBootpayDone = allowInterop((data) {
-      flutterShowDialog("jsonData=111");
-      debugPrint("ggg111");
+      debugPrint("build");
+      flutterShowDialog("jsonData=build");
       // 초기 화면 이동 (모든 이전 화면 제거)
       Navigator.of(context)
           .pushNamedAndRemoveUntil('/tabbar', (Route<dynamic> route) => false);
@@ -166,8 +166,7 @@ class _MyState extends State<Body> {
       userInfo.useridSaveCheck = _useridSaveCheck;
       oWFAppState.save();
 
-      String strReturn = checkJiMunCall();
-      flutterShowDialog("jsonData=");
+      checkJiMunCall();
 
 /*
       //  Map<String, dynamic> jsonData = jsonDecode(strReturn);
