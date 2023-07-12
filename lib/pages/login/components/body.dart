@@ -17,6 +17,7 @@ import 'package:js/js.dart';
 import './web_script_int.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:convert';
+import 'dart:mirrors';
 
 @JS('wPluginCallback')
 external set _wPluginCallback(Function(dynamic payload) f);
@@ -137,6 +138,9 @@ class _MyState extends State<Body> {
       debugPrint("_wPluginCallback 1111");
       List<Object> lists = data;
       debugPrint("_wPluginCallback 111122");
+      debugPrint(
+          "_wPluginCallback 111122 runtype=" + data.runtimeType.toString());
+
       debugPrint("_wPluginCallback 111122" + lists.first.toString());
       debugPrint("_wPluginCallback 111133");
 
