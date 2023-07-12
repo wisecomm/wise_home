@@ -134,6 +134,11 @@ class _MyState extends State<Body> {
       final map = jsonDecode(rawJson) as Map<String, dynamic>;
       debugPrint("_wPluginCallback data2222 nmae=" + map['name']);
 
+      debugPrint("_wPluginCallback 111133");
+      final map3 = jsonDecode(data) as Map<Object, Object>;
+      debugPrint("_wPluginCallback data22kk2=$data");
+      debugPrint("_wPluginCallback data22kk3=" + map3.toString());
+
       debugPrint("_wPluginCallback 1111kk");
       debugPrint("_wPluginCallback 111122===11" + data.runtimeType.toString());
       debugPrint("_wPluginCallback 2222");
@@ -148,11 +153,7 @@ class _MyState extends State<Body> {
       //         "_wPluginCallback 111122 runtype=" + data.runtimeType.toString());
 
       debugPrint("_wPluginCallback 111122" + lists.first.toString());
-      debugPrint("_wPluginCallback 111133");
 
-      final map3 = jsonDecode(data) as Map<String, dynamic>;
-      debugPrint("_wPluginCallback data22kk2=$data");
-      debugPrint("_wPluginCallback data22kk3=" + data['callback_id']);
 /*      
       debugPrint("_wPluginCallback data223=" + data[1].toString());
 
