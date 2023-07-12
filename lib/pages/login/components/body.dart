@@ -137,7 +137,8 @@ class _MyState extends State<Body> {
       debugPrint("_wPluginCallback 111133");
 
       try {
-        var jsonData = jsonDecode(data);
+        var jsonData = jsonDecode(data)['weather'][0]['description'];
+//        var jsonData = jsonDecode(data);
         debugPrint("_wPluginCallback data22kk22=$jsonData");
       } catch (e) {
         print("ERROR1====");
