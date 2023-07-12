@@ -136,9 +136,14 @@ class _MyState extends State<Body> {
 
       debugPrint("_wPluginCallback 1111");
       List<Object> lists = data;
-      debugPrint("_wPluginCallback 111122");
+      debugPrint("_wPluginCallback 111122===");
+      debugPrint("_wPluginCallback 1111221===" + lists.length.toString());
+      debugPrint("_wPluginCallback 1111221===" + lists[0].toString());
       debugPrint(
-          "_wPluginCallback 111122 runtype=" + data.runtimeType.toString());
+          "_wPluginCallback 1111221===" + lists[0].runtimeType.toString());
+
+//      debugPrint(
+      //         "_wPluginCallback 111122 runtype=" + data.runtimeType.toString());
 
       debugPrint("_wPluginCallback 111122" + lists.first.toString());
       debugPrint("_wPluginCallback 111133");
