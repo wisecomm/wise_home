@@ -41,8 +41,8 @@ class _MyState extends State<Body> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
 
     _wPluginCallback = allowInterop((data) {
-      debugPrint("_wPluginCallback data221=" + data.toString());
-      debugPrint("_wPluginCallback data222=" + data[0].toString());
+      debugPrint("_wPluginCallback data22kk1=" + data.toString());
+      debugPrint("_wPluginCallback data222=" + data['callback_id'].toString());
       debugPrint("_wPluginCallback data223=" + data[1].toString());
 
       try {
