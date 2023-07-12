@@ -19,9 +19,9 @@ import './web_script_int.dart';
 import 'package:flutter/foundation.dart';
 
 @JS('reCheckBio')
-external set _WPluginCallback(Function(dynamic payload) f);
+external set _wPluginCallback(Function(dynamic payload) f);
 @JS()
-external dynamic WPluginCallback();
+external dynamic wPluginCallback();
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -40,21 +40,24 @@ class _MyState extends State<Body> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
 
-    _WPluginCallback = allowInterop((data) {
-      debugPrint("_WPluginCallback data=" + data);
+    _wPluginCallback = allowInterop((data) {
+      debugPrint("_wPluginCallback data=" + data.toString());
 
       Map<String, dynamic> jsonData = jsonDecode(data);
       flutterShowDialog(
           "initState _WPluginCallback data=" + jsonData['callback_id']);
-/*      
-      if ("0" == jsonData['callback_id']) {
+
+      var params = jsonData['result'];
+      var returnCode = params.get('returnCode');
+
+      if ("0" == returnCode.toString()) {
         // 초기 화면 이동 (모든 이전 화면 제거)
         Navigator.of(context).pushNamedAndRemoveUntil(
             '/tabbar', (Route<dynamic> route) => false);
       } else {
-        flutterShowDialog(jsonData['returnMsg']);
+        var returnMsg = params.get('returnMsg');
+        flutterShowDialog('returnCode=$returnCode returnMsg=$returnMsg');
       }
-      */
     });
     debugPrint("_onBootpayDone end");
   }
