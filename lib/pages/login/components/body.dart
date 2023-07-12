@@ -46,7 +46,7 @@ class _MyState extends State<Body> {
       try {
         Map<String, dynamic> jsonData = jsonDecode(data);
       } catch (e) {
-        print("ERROR1=" + e);
+        print("ERROR1====");
         var message = e.toString();
         print("ERROR2=" + message);
       }
