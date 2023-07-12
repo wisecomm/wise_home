@@ -41,7 +41,14 @@ class _MyState extends State<Body> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
 
     _wPluginCallback = allowInterop((data) {
-      debugPrint("_wPluginCallback data=" + data.toString());
+      debugPrint("_wPluginCallback data11=" + data.toString());
+
+      var aa = data[0].toString();
+      debugPrint("_wPluginCallback data22=" + aa);
+      var bb = data[1].toString();
+      debugPrint("_wPluginCallback data22=" + bb);
+      var cc = bb[0].toString();
+      debugPrint("_wPluginCallback data22=" + cc);
 
       Map<String, dynamic> jsonData = jsonDecode(data);
       debugPrint("_wPluginCallback data111=" + jsonData.toString());
