@@ -44,6 +44,7 @@ class _MyState extends State<Body> {
       debugPrint("_wPluginCallback data=" + data.toString());
 
       Map<String, dynamic> jsonData = jsonDecode(data);
+      debugPrint("_wPluginCallback data111=" + jsonData.toString());
       flutterShowDialog(
           "initState _WPluginCallback data=" + jsonData['callback_id']);
 
