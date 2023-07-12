@@ -15,11 +15,12 @@ import '../mock_login.dart';
 
 import 'package:js/js.dart';
 import './web_script_int.dart';
+import 'package:flutter/foundation.dart';
 
-@JS('onBootpayDone')
-external set _onBootpayDone(Function(dynamic payload) f);
+@JS('reCheckBio')
+external set _reCheckBio(Function(dynamic payload) f);
 @JS()
-external dynamic onBootpayDone();
+external dynamic reCheckBio();
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -39,8 +40,8 @@ class _MyState extends State<Body> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
 
     debugPrint("_onBootpayDone start");
-    _onBootpayDone = allowInterop((data) {
-      debugPrint("initState");
+    _reCheckBio = allowInterop((data) {
+      debugPrint("initState data=" + data);
       flutterShowDialog("jsonData=initState");
 /*      
       // 초기 화면 이동 (모든 이전 화면 제거)
@@ -166,7 +167,16 @@ class _MyState extends State<Body> {
       userInfo.useridSaveCheck = _useridSaveCheck;
       oWFAppState.save();
 
-      checkJiMunCall();
+      final isWebMobile = kIsWeb &&
+          (defaultTargetPlatform == TargetPlatform.iOS ||
+              defaultTargetPlatform == TargetPlatform.android);
+      if (isWebMobile == true) {
+        checkJiMunCall();
+      } else {
+        // 초기 화면 이동 (모든 이전 화면 제거)
+        Navigator.of(context).pushNamedAndRemoveUntil(
+            '/tabbar', (Route<dynamic> route) => false);
+      }
 
 /*
       //  Map<String, dynamic> jsonData = jsonDecode(strReturn);
