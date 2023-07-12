@@ -17,7 +17,6 @@ import 'package:js/js.dart';
 import './web_script_int.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:convert';
-import 'dart:mirrors';
 
 @JS('wPluginCallback')
 external set _wPluginCallback(Function(dynamic payload) f);
