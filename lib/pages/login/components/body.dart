@@ -19,9 +19,9 @@ import './web_script_int.dart';
 import 'package:flutter/foundation.dart';
 
 @JS('reCheckBio')
-external set _reCheckBio(Function(dynamic payload) f);
+external set _WPluginCallback(Function(dynamic payload) f);
 @JS()
-external dynamic reCheckBio();
+external dynamic WPluginCallback();
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -40,17 +40,21 @@ class _MyState extends State<Body> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
 
-    _reCheckBio = allowInterop((data) {
-      debugPrint("_reCheckBio data=" + data);
+    _WPluginCallback = allowInterop((data) {
+      debugPrint("_WPluginCallback data=" + data);
 
       Map<String, dynamic> jsonData = jsonDecode(data);
-      if ("0" == jsonData['returnCode']) {
+      flutterShowDialog(
+          "initState _WPluginCallback data=" + jsonData['callback_id']);
+/*      
+      if ("0" == jsonData['callback_id']) {
         // 초기 화면 이동 (모든 이전 화면 제거)
         Navigator.of(context).pushNamedAndRemoveUntil(
             '/tabbar', (Route<dynamic> route) => false);
       } else {
         flutterShowDialog(jsonData['returnMsg']);
       }
+      */
     });
     debugPrint("_onBootpayDone end");
   }
