@@ -86,6 +86,11 @@ class _MyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    _onBootpayDone = allowInterop((data) {
+      flutterShowDialog("jsonData=111");
+      debugPrint("ggg111");
+    });
+
     debugPrint("build start");
     Size size = MediaQuery.of(context).size;
     return Background(
@@ -175,10 +180,10 @@ class _MyState extends State<Body> {
       oWFAppState.save();
 
       String strReturn = checkJiMunCall();
-
-      Map<String, dynamic> jsonData = jsonDecode(strReturn);
       flutterShowDialog("jsonData=");
+
 /*
+      //  Map<String, dynamic> jsonData = jsonDecode(strReturn);
       if ("0" == jsonData['returnCode']) {
         // 초기 화면 이동 (모든 이전 화면 제거)
         Navigator.of(context).pushNamedAndRemoveUntil(
