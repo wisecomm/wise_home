@@ -41,20 +41,16 @@ class _MyState extends State<Body> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
 
     _wPluginCallback = allowInterop((data) {
-      debugPrint("_wPluginCallback data11=" + data.toString());
+      debugPrint("_wPluginCallback data22=" + data.toString());
 
-      var aa = data[0].toString();
-      debugPrint("_wPluginCallback data22=" + aa);
-      var bb = data[1].toString();
-      debugPrint("_wPluginCallback data22=" + bb);
-      var cc = bb[0].toString();
-      debugPrint("_wPluginCallback data22=" + cc);
-
-      Map<String, dynamic> jsonData = jsonDecode(data);
-      debugPrint("_wPluginCallback data111=" + jsonData.toString());
-      flutterShowDialog(
-          "initState _WPluginCallback data=" + jsonData['callback_id']);
-
+      try {
+        Map<String, dynamic> jsonData = jsonDecode(data);
+      } catch (e) {
+        print("ERROR1=" + e);
+        var message = e.toString();
+        print("ERROR2=" + message);
+      }
+/*
       var params = jsonData['result'];
       var returnCode = params.get('returnCode');
 
@@ -66,6 +62,7 @@ class _MyState extends State<Body> {
         var returnMsg = params.get('returnMsg');
         flutterShowDialog('returnCode=$returnCode returnMsg=$returnMsg');
       }
+*/
     });
     debugPrint("_onBootpayDone end");
   }
@@ -175,6 +172,16 @@ class _MyState extends State<Body> {
       userInfo.passwd = "패스워드";
       userInfo.useridSaveCheck = _useridSaveCheck;
       oWFAppState.save();
+
+      var data = '{"callback_id":"test callbackId"}';
+      Map<String, dynamic> jsonData = jsonDecode(data);
+
+      var aa = jsonData[0].toString();
+      debugPrint("_wPluginCallback data22=" + aa);
+      var bb = data[1].toString();
+      debugPrint("_wPluginCallback data22=" + bb);
+      var cc = bb[0].toString();
+      debugPrint("_wPluginCallback data22=" + cc);
 
       final isWebMobile = kIsWeb &&
           (defaultTargetPlatform == TargetPlatform.iOS ||
