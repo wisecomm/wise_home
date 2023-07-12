@@ -16,6 +16,7 @@ import '../mock_login.dart';
 import 'package:js/js.dart';
 import './web_script_int.dart';
 import 'package:flutter/foundation.dart';
+import 'dart:convert';
 
 @JS('wPluginCallback')
 external set _wPluginCallback(Function(dynamic payload) f);
@@ -128,6 +129,12 @@ class _MyState extends State<Body> {
     final loginInput = LoginInput("eve.holt@reqres.in", "cityslicka");
 
     _wPluginCallback = allowInterop((data) {
+      debugPrint("_wPluginCallback data1111");
+      final rawJson = '{"name":"Mary","age":30}';
+      final map = jsonDecode(rawJson) as Map<String, dynamic>;
+      debugPrint("_wPluginCallback data2222 nmae=" + map['name']);
+
+      final map3 = jsonDecode(data) as Map<String, dynamic>;
       debugPrint("_wPluginCallback data22kk2=$data");
       debugPrint("_wPluginCallback data22kk3=" + data['callback_id']);
 /*      
