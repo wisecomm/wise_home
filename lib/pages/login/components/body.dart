@@ -135,7 +135,17 @@ class _MyState extends State<Body> {
       // debugPrint("_wPluginCallback data2222 nmae=" + map['name']);
 
       debugPrint("_wPluginCallback 111133");
-      debugPrint("_wPluginCallback data22kk21=$data.toString()");
+
+      try {
+        Map<dynamic, dynamic> jsonData = jsonDecode(data);
+        print("ERROR1====" + jsonData.toString());
+      } catch (e) {
+        print("ERROR1====");
+        var message = e.toString();
+        print("ERROR2=" + message);
+      }
+
+      debugPrint("_wPluginCallback data22kk21=$data");
       debugPrint("_wPluginCallback data22kk22=$data[0]");
 
       final map3 = data as Map<dynamic, dynamic>;
