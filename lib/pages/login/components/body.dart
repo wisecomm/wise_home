@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -39,15 +40,17 @@ class _MyState extends State<Body> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
 
-    debugPrint("_onBootpayDone start");
     _reCheckBio = allowInterop((data) {
-      debugPrint("initState data=" + data);
-      flutterShowDialog("jsonData=initState");
-/*      
-      // 초기 화면 이동 (모든 이전 화면 제거)
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil('/tabbar', (Route<dynamic> route) => false);
-*/
+      debugPrint("_reCheckBio data=" + data);
+
+      Map<String, dynamic> jsonData = jsonDecode(data);
+      if ("0" == jsonData['returnCode']) {
+        // 초기 화면 이동 (모든 이전 화면 제거)
+        Navigator.of(context).pushNamedAndRemoveUntil(
+            '/tabbar', (Route<dynamic> route) => false);
+      } else {
+        flutterShowDialog(jsonData['returnMsg']);
+      }
     });
     debugPrint("_onBootpayDone end");
   }
@@ -70,15 +73,6 @@ class _MyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-/*    
-    _onBootpayDone = allowInterop((data) {
-      debugPrint("build");
-      flutterShowDialog("jsonData=build");
-      // 초기 화면 이동 (모든 이전 화면 제거)
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil('/tabbar', (Route<dynamic> route) => false);
-    });
-*/
     debugPrint("build start");
     Size size = MediaQuery.of(context).size;
     return Background(
@@ -177,17 +171,6 @@ class _MyState extends State<Body> {
         Navigator.of(context).pushNamedAndRemoveUntil(
             '/tabbar', (Route<dynamic> route) => false);
       }
-
-/*
-      //  Map<String, dynamic> jsonData = jsonDecode(strReturn);
-      if ("0" == jsonData['returnCode']) {
-        // 초기 화면 이동 (모든 이전 화면 제거)
-        Navigator.of(context).pushNamedAndRemoveUntil(
-            '/tabbar', (Route<dynamic> route) => false);
-      } else {
-        flutterShowDialog(jsonData['returnMsg']);
-      }
-*/
     });
   }
 
