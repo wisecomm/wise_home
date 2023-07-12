@@ -1,9 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import '../../../wflib/WebAppInterface.dart';
 import '../../components/already_have_an_acount_check.dart';
 import '../..//components/rounded_button.dart';
 import '../..//components/rounded_input_field.dart';
@@ -16,33 +13,11 @@ import '../../../wflib/wfutils/wfhttp_util.dart';
 import '../../../user_info.dart';
 import '../mock_login.dart';
 
-import 'package:js/js.dart';
-
-@JS('jsBootpay')
-external dynamic requestBootpayWeb(String payload);
+import './js_stub.dart';
+import './web_script_int.dart';
 
 @JS('onBootpayDone')
 external set _onBootpayDone(Function(dynamic payload) f);
-
-@JS()
-external dynamic onBootpayDone();
-
-/*
-// ignore: missing_js_lib_annotation
-@JS('confirm')
-external void showConfirm(String text);
-void callJsFunction() {
-  showConfirm('command');
-}
-*/
-
-// ignore: missing_js_lib_annotation
-//@JS('WiseComInt.saveUrl')
-@JS('WebAppInterface.getGalleryPhoto')
-external void getGalleryPhoto();
-void callJsSaveUrl(String strUrl) {
-  getGalleryPhoto();
-}
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -64,6 +39,7 @@ class _MyState extends State<Body> {
     debugPrint("_onBootpayDone start");
     _onBootpayDone = allowInterop((data) {
       debugPrint("ggg");
+      flutterShowDialog("jsonData=initState");
     });
     debugPrint("_onBootpayDone end");
   }
@@ -86,11 +62,12 @@ class _MyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+/*    
     _onBootpayDone = allowInterop((data) {
-      flutterShowDialog("jsonData=111");
+      flutterShowDialog("jsonData=build");
       debugPrint("ggg111");
     });
-
+*/
     debugPrint("build start");
     Size size = MediaQuery.of(context).size;
     return Background(
