@@ -141,7 +141,7 @@ class _MyState extends State<Body> {
 */
       debugPrint("_wPluginCallback 1111kk");
       debugPrint("_wPluginCallback 2222pp");
-      List<dynamic> list = data as List<dynamic>;
+      List<dynamic> lists = data as List<dynamic>;
       debugPrint("_wPluginCallback 111122pp===11");
       debugPrint("_wPluginCallback 1111221===" + lists.toString());
       /*
