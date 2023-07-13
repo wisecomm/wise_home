@@ -139,18 +139,26 @@ class _MyState extends State<Body> {
       try {
         debugPrint("_wPluginCallback data=$data");
         var jsonData = jsonDecode(data);
-//        var jsonData = jsonDecode(data);
-        debugPrint("_wPluginCallback data22kk22=$jsonData");
+        debugPrint("_wPluginCallback recv param=$jsonData");
+
+        Map<String, dynamic> recvParams = jsonDecode(data);
+        debugPrint("_wPluginCallback recvParams=$recvParams");
+
+        var recvResult = recvParams['result'];
+        debugPrint("_wPluginCallback recvResult=$recvResult");
+
+        var returnCode = recvResult['returnCode'];
+        debugPrint("_wPluginCallback returnCode=$returnCode");
+        if (returnCode == "0") {
+          debugPrint("returnCode 0=$returnCode");
+        } else {
+          debugPrint("returnCode not 0=$returnCode");
+        }
       } catch (e) {
-        print("ERROR1====");
         var message = e.toString();
-        print("ERROR2=" + message);
+        debugPrint("_wPluginCallback catch error=$message");
       }
 
-      debugPrint("_wPluginCallback data22kk21=$data");
-
-      final map3 = data as Map<dynamic, dynamic>;
-      debugPrint("_wPluginCallback data22kk3=" + map3.toString());
 /*
       debugPrint("_wPluginCallback 1111kk");
       debugPrint("_wPluginCallback 2222pp");
