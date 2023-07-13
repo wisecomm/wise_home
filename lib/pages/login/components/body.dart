@@ -40,7 +40,31 @@ class _MyState extends State<Body> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) => _formInit(context));
 
-    debugPrint("_onBootpayDone end");
+    _wPluginCallback = allowInterop((data) {
+      try {
+        debugPrint("_wPluginCallback data=$data");
+        var jsonData = jsonDecode(data);
+        debugPrint("_wPluginCallback recv param=$jsonData");
+
+        Map<String, dynamic> recvParams = jsonDecode(data);
+//        debugPrint("_wPluginCallback recvParams=$recvParams");
+        var recvResult = recvParams['result'];
+//        debugPrint("_wPluginCallback recvResult=$recvResult");
+        var returnCode = recvResult['returnCode'];
+//        debugPrint("_wPluginCallback returnCode=$returnCode");
+        if ("0".compareTo(returnCode.toString()) == 0) {
+          // 초기 화면 이동 (모든 이전 화면 제거)
+          Navigator.of(context).pushNamedAndRemoveUntil(
+              '/tabbar', (Route<dynamic> route) => false);
+        } else {
+          var returnMsg = recvResult['returnMsg'];
+          flutterShowDialog('returnCode=$returnCode returnMsg=$returnMsg');
+        }
+      } catch (e) {
+        var message = e.toString();
+        debugPrint("_wPluginCallback catch error=$message");
+      }
+    });
   }
 
   // 폼 초기화
@@ -127,79 +151,6 @@ class _MyState extends State<Body> {
   Future<void> _btnLogin(BuildContext context) async {
     // 요청 데이터 샛팅
     final loginInput = LoginInput("eve.holt@reqres.in", "cityslicka");
-
-    _wPluginCallback = allowInterop((data) {
-      // debugPrint("_wPluginCallback data1111");
-      // final rawJson = '{"name":"Mary","age":30}';
-      // final map = jsonDecode(rawJson) as Map<String, dynamic>;
-      // debugPrint("_wPluginCallback data2222 nmae=" + map['name']);
-
-      debugPrint("_wPluginCallback 111144");
-
-      try {
-        debugPrint("_wPluginCallback data=$data");
-        var jsonData = jsonDecode(data);
-        debugPrint("_wPluginCallback recv param=$jsonData");
-
-        Map<String, dynamic> recvParams = jsonDecode(data);
-        debugPrint("_wPluginCallback recvParams=$recvParams");
-
-        var recvResult = recvParams['result'];
-        debugPrint("_wPluginCallback recvResult=$recvResult");
-
-        var returnCode = recvResult['returnCode'];
-        debugPrint("_wPluginCallback returnCode=$returnCode");
-        if ("0".compareTo(returnCode.toString()) == 0) {
-          debugPrint("returnCode 0 ggg");
-        } else {
-          debugPrint("returnCode not ggg");
-        }
-      } catch (e) {
-        var message = e.toString();
-        debugPrint("_wPluginCallback catch error=$message");
-      }
-
-/*
-      debugPrint("_wPluginCallback 1111kk");
-      debugPrint("_wPluginCallback 2222pp");
-      List<dynamic> lists = data as List<dynamic>;
-      debugPrint("_wPluginCallback 111122pp===11");
-      debugPrint("_wPluginCallback 1111221===" + lists.toString());
-*/
-      /*
-      debugPrint(
-          "_wPluginCallback 1111221===" + lists[0].runtimeType.toString());
-
-//      debugPrint(
-      //         "_wPluginCallback 111122 runtype=" + data.runtimeType.toString());
-
-      debugPrint("_wPluginCallback 111122" + lists.first.toString());
-*/
-/*      
-      debugPrint("_wPluginCallback data223=" + data[1].toString());
-
-      try {
-        Map<String, dynamic> jsonData = jsonDecode(data[0]);
-      } catch (e) {
-        print("ERROR1====");
-        var message = e.toString();
-        print("ERROR2=" + message);
-      }
-*/
-/*
-      var params = jsonData['result'];
-      var returnCode = params.get('returnCode');
-
-      if ("0" == returnCode.toString()) {
-        // 초기 화면 이동 (모든 이전 화면 제거)
-        Navigator.of(context).pushNamedAndRemoveUntil(
-            '/tabbar', (Route<dynamic> route) => false);
-      } else {
-        var returnMsg = params.get('returnMsg');
-        flutterShowDialog('returnCode=$returnCode returnMsg=$returnMsg');
-      }
-*/
-    });
 
     await WFHttpUtil.post(LoginInput.URL,
             body: loginInput.toJson(), context: context)
