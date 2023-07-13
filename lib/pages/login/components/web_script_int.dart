@@ -11,3 +11,9 @@ external String checkJiMun();
 String checkJiMunCall() {
   return checkJiMun();
 }
+
+@JS('WebAppInterface.checkJiMun')
+external String funCallMethod(String funCallMethodCall);
+String funCallMethodCall(funCallMethodCall) {
+  return funCallMethod(funCallMethodCall);
+}

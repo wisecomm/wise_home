@@ -177,7 +177,8 @@ class _MyState extends State<Body> {
           (defaultTargetPlatform == TargetPlatform.iOS ||
               defaultTargetPlatform == TargetPlatform.android);
       if (isWebMobile == true) {
-        checkJiMunCall();
+        funCallMethod('{ "callback_id": "123456" }');
+//        checkJiMunCall();
       } else {
         // 초기 화면 이동 (모든 이전 화면 제거)
         Navigator.of(context).pushNamedAndRemoveUntil(
