@@ -147,7 +147,7 @@ class _MyState extends State<Body> {
         var recvResult = recvParams['result'];
         debugPrint("_wPluginCallback recvResult=$recvResult");
 
-        var returnCode = recvResult['returnCode'];
+        var returnCode = recvResult['returnCode'].toString();
         debugPrint("_wPluginCallback returnCode=$returnCode");
         if (returnCode == "0") {
           debugPrint("returnCode 0=$returnCode");
