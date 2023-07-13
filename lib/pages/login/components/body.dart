@@ -147,12 +147,12 @@ class _MyState extends State<Body> {
         var recvResult = recvParams['result'];
         debugPrint("_wPluginCallback recvResult=$recvResult");
 
-        var returnCode = recvResult['returnCode'].toString();
+        var returnCode = recvResult['returnCode'];
         debugPrint("_wPluginCallback returnCode=$returnCode");
-        if (returnCode == "0") {
-          debugPrint("returnCode 0=$returnCode");
+        if ("0".compareTo(returnCode.toString()) == 0) {
+          debugPrint("returnCode 0 ggg");
         } else {
-          debugPrint("returnCode not 0=$returnCode");
+          debugPrint("returnCode not ggg");
         }
       } catch (e) {
         var message = e.toString();
